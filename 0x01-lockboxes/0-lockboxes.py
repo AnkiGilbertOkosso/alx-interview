@@ -29,6 +29,8 @@ def canUnlockAll(boxes):
         for key in keys:
             if key not in visited and key < num_boxes:
                 unlock_boxes(key)
+        if len(visited) == num_boxes:
+            return
 
     unlock_boxes(0)
 
