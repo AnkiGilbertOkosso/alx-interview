@@ -15,23 +15,15 @@ def canUnlockAll(boxes):
     num_boxes = len(boxes)
 
     visited = set()
+    satck[0]
 
-    def unlock_boxes(box_index):
-        """
-        Recursively unlocks boxes starting from the given box index.
-
-        Args:
-        - box_index: Index of the box to start unlocking from.
-        """
+    while stack:
+        box_index = stack.pop()
         visited.add(box_index)
+
         keys = boxes[box_index]
 
         for key in keys:
             if key not in visited and key < num_boxes:
-                unlock_boxes(key)
-        if len(visited) == num_boxes:
-            return
-
-    unlock_boxes(0)
-
+                stack.append(key)
     return len(visited) == num_boxes
